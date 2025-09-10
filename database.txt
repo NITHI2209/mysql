@@ -1,0 +1,18 @@
+database - organized, electronic collection of structured information or data
+2 types:
+      1) No - sql(key & value pairs)
+      2) Sql (table format)
+        
+mysql :
+Relational database(RDBMS)
+stores data in tables(rows & columns)
+Requires a fixed schema (predefined structure)
+  
+Mango DB:
+No sql database(document - oriented)
+stores data in collections but as JSON -like document 
+schema - less/flexible schema
+
+
+
+  
