@@ -1,0 +1,23 @@
+mysql> INSERT INTO EMPLOYEE(EmpID,FirstName,LastName,EmpAGE, EmpZone)
+    -> Values (1,'Jack','Sparrow',25 ,'North');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO EMPLOYEE(EmpID,FirstName,LastName,EmpAGE, EmpZone) Values(2 , 'Jaya','sree',28,'south');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO EMPLOYEE(EmpID,FirstName,LastName,EmpAGE, EmpZone) Values(3 , 'Nithya','sri',21,'East');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO EMPLOYEE(EmpID,FirstName,LastName,EmpAGE, EmpZone) Values(4, 'Hari','Karthick',24,'West');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZone |
++-------+-----------+----------+--------+---------+
+|     1 | Jack      | Sparrow  |     25 | North   |
+|     2 | Jaya      | sree     |     28 | south   |
+|     3 | Nithya    | sri      |     21 | East    |
+|     4 | Hari      | Karthick |     24 | West    |
++-------+-----------+----------+--------+---------+
+4 rows in set (0.00 sec)
