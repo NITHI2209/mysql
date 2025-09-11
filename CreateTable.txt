@@ -1,0 +1,8 @@
+mysql> create table employee(
+    -> EmpID int,
+    -> FirstName varchar(255),
+    -> LastName varchar(255),
+    -> EmpAGE int,
+    -> EmpZone varchar(255)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
