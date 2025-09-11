@@ -1,0 +1,19 @@
+mysql> SELECT * FROM EMPLOYEE
+    -> WHERE EmpAGE <= 24;
++-------+-----------+----------+--------+---------+
+| EmpID | FirstName | LastName | EmpAGE | EmpZone |
++-------+-----------+----------+--------+---------+
+|     3 | Nithya    | sri      |     21 | East    |
+|     4 | Hari      | Karthick |     24 | West    |
++-------+-----------+----------+--------+---------+
+2 rows in set (0.01 sec)
+
+OPERATORS - WHERE CLAUSE
+=
+>
+<
+>=
+<=
+BETWEEN
+LIKE
+IN
