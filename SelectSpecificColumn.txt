@@ -1,0 +1,24 @@
+#selecting single column
+mysql> select EmpId from employee;
++-------+
+| EmpId |
++-------+
+|     1 |
+|     2 |
+|     3 |
+|     4 |
++-------+
+4 rows in set (0.00 sec)
+
+#selecting multiple column
+mysql> select FirstName, LastName,EmpAGE from employee;
++-----------+----------+--------+
+| FirstName | LastName | EmpAGE |
++-----------+----------+--------+
+| Jack      | Sparrow  |     25 |
+| Jaya      | sree     |     28 |
+| Nithya    | sri      |     21 |
+| Hari      | Karthick |     24 |
++-----------+----------+--------+
+4 rows in set (0.00 sec)
+
