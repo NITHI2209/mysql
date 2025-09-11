@@ -1,0 +1,13 @@
+mysql> use nithi;
+Database changed
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| nithi              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
