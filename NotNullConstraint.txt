@@ -1,0 +1,23 @@
+mysql> create table employee (
+    -> EmpId int NOT NULL,
+    -> FirstName varchar(255),
+    -> LastName varchar(255),
+    -> EmpAGE int,
+    -> EmpZone varchar(255)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> DESC employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpId     | int          | NO   |     | NULL    |       |
+| FirstName | varchar(255) | YES  |     | NULL    |       |
+| LastName  | varchar(255) | YES  |     | NULL    |       |
+| EmpAGE    | int          | YES  |     | NULL    |       |
+| EmpZone   | varchar(255) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+mysql> insert into employee(EmpId,FirstName,LastName,EmpAGE,EmpZone)
+    -> VALUES(NULL,'JACK','SPARROW',25,'SOUTH');
+ERROR 1048 (23000): Column 'EmpId' cannot be null
