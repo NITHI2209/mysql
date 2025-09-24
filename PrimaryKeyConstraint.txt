@@ -1,0 +1,19 @@
+mysql> CREATE TABLE EMPLOYEE(
+    -> EmpID int NOT NULL,
+    -> FirstName varchar(255),
+    -> LastName varchar(255),
+    -> EmpZone varchar(255),
+    -> PRIMARY KEY (EmpID)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> DESC EMPLOYEE;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | NO   | PRI | NULL    |       |
+| FirstName | varchar(255) | YES  |     | NULL    |       |
+| LastName  | varchar(255) | YES  |     | NULL    |       |
+| EmpZone   | varchar(255) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
