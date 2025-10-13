@@ -1,0 +1,20 @@
+mysql> create table employee (
+    -> EmpID int NOT NULL,
+    -> FN varchar(255),
+    -> LN varchar(255),
+    -> UNIQUE (EmpID)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc employee;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| EmpID | int          | NO   | PRI | NULL    |       |
+| FN    | varchar(255) | YES  |     | NULL    |       |
+| LN    | varchar(255) | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+NOTE : A table can have mutiple unique constraint but single primary key 
+and in the above table the unique table is automatically converted into PRI
