@@ -1,0 +1,20 @@
+mysql> select * from employee;
++-------+----------+---------+--------+
+| EmpID | FN       | LN      | EmpAge |
++-------+----------+---------+--------+
+|     1 | jack     | sparrow |     23 |
+|     2 | jaya     | sree    |     21 |
+|     3 | nithya   | sree    |     24 |
+|     4 | jayanthi | sriram  |     25 |
+|     4 | Emma     | watson  |     27 |
++-------+----------+---------+--------+
+5 rows in set (0.00 sec)
+mysql> select * from employee
+    -> Where EmpAge in (23,21);
++-------+------+---------+--------+
+| EmpID | FN   | LN      | EmpAge |
++-------+------+---------+--------+
+|     1 | jack | sparrow |     23 |
+|     2 | jaya | sree    |     21 |
++-------+------+---------+--------+
+2 rows in set (0.00 sec
