@@ -1,0 +1,32 @@
+mysql> create table employee(
+    -> EmpID int NOT NULL,
+    -> FN varchar(255),
+    -> LN varchar(255),
+    -> EmpDept varchar(255) DEFAULT 'Operations'
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc employee;
++---------+--------------+------+-----+------------+-------+
+| Field   | Type         | Null | Key | Default    | Extra |
++---------+--------------+------+-----+------------+-------+
+| EmpID   | int          | NO   |     | NULL       |       |
+| FN      | varchar(255) | YES  |     | NULL       |       |
+| LN      | varchar(255) | YES  |     | NULL       |       |
+| EmpDept | varchar(255) | YES  |     | Operations |       |
++---------+--------------+------+-----+------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into employee(EmpID,FN,LN)
+    -> value (1,'jack','sparrow');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select*from employee;
++-------+------+---------+------------+
+| EmpID | FN   | LN      | EmpDept    |
++-------+------+---------+------------+
+|     1 | jack | sparrow | Operations |
++-------+------+---------+------------+
+1 row in set (0.00 sec)
+
+NOTe: By default the EmpDept is fixed as "operations"
