@@ -1,0 +1,16 @@
+mysql> ALTER TABLE EMPLOYEE
+    -> ADD EmpDept varchar(255);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| EmpID   | int          | NO   |     | NULL    |       |
+| FN      | varchar(255) | YES  |     | NULL    |       |
+| LN      | varchar(255) | YES  |     | NULL    |       |
+| EmpAge  | int          | YES  |     | NULL    |       |
+| EmpDept | varchar(255) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
