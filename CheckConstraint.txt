@@ -1,0 +1,25 @@
+mysql> drop table employee;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table employee(
+    -> EmpID int not null,
+    -> FN varchar(255),
+    -> LN varchar(255),
+    -> EmpAge int,
+    -> CHECK (EmpAge > 20 )
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into employee(EmpID,FN,LN,EmpAge)
+    -> values(1,'jack','sparrow',23);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee(EmpID,FN,LN,EmpAge)
+    -> values(2,'jaya','sree',21);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into employee(EmpID,FN,LN,EmpAge)
+    -> values(3,'jayanthi','sriram',20);
+ERROR 3819 (HY000): Check constraint 'employee_chk_1' is violated.
+
+NOTE : if condition is not satisfied then it will show "check constraint" error
