@@ -1,0 +1,41 @@
+mysql> create table employee(
+    -> EmpID int not null,
+    -> Firstname varchar(255),
+    -> Lastname varchar(255),
+    -> EmpZone varchar(255),
+    -> primary key (EmpID)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| EmpID     | int          | NO   | PRI | NULL    |       |
+| Firstname | varchar(255) | YES  |     | NULL    |       |
+| Lastname  | varchar(255) | YES  |     | NULL    |       |
+| EmpZone   | varchar(255) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+
+mysql> create table department (
+    -> DeptID int not null,
+    -> DeptName varchar(255) not null,
+    -> EmpID int,
+    -> primary key (DeptID),
+    -> foreign key (EmpID) REFERENCES employee
+    -> (EmpID)
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> desc department;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| DeptID   | int          | NO   | PRI | NULL    |       |
+| DeptName | varchar(255) | NO   |     | NULL    |       |
+| EmpID    | int          | YES  | MUL | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+
+#NOTE: EmpID in depaetment is a foreign key so it is mentioned as MUL
