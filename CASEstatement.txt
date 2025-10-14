@@ -1,0 +1,19 @@
+mysql> select
+    -> FN,
+    -> LN,
+    -> EmpAge,
+    -> CASE
+    -> WHEN EmpAge > 25 THEN 'Employee with exp is eligible'
+    -> WHEN EmpAge = 25 THEN 'Employee with mid exp is eligile'
+    -> ELSE 'Freshers'
+    -> END AS Eligibility
+    -> FROM Employee;
++----------+---------+--------+-------------------------------+
+| FN       | LN      | EmpAge | Eligibility                   |
++----------+---------+--------+-------------------------------+
+| jack     | sparrow |     23 | Freshers                      |
+| jaya     | sree    |     26 | Employee with exp is eligible |
+| nithya   | sri     |     21 | Freshers                      |
+| jayanthi | sriram  |     30 | Employee with exp is eligible |
++----------+---------+--------+-------------------------------+
+4 rows in set (0.01 sec)
