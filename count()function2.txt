@@ -1,0 +1,21 @@
+mysql> select * from employee;
++-------+----------+---------+--------+---------+
+| EmpID | FN       | LN      | EmpAge | EmpZone |
++-------+----------+---------+--------+---------+
+|     1 | jack     | sparrow |     23 | south   |
+|     2 | jaya     | sree    |     26 | north   |
+|     3 | nithya   | sri     |     21 | east    |
+|     4 | jayanthi | sriram  |     30 | west    |
++-------+----------+---------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select count(*)
+    -> from employee;
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.01 sec)
+
+#note : count the entire row in the table
