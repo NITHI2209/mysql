@@ -1,0 +1,26 @@
+mysql> create table employee(
+    -> EmpID int NOT NULL AUTO_INCREMENT,
+    -> FN varchar(255),
+    -> LN varchar(255),
+    -> EmpAge int,
+    -> EmpZone varchar(255),
+    -> PRIMARY KEY (EmpID)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> insert into employee(FN,LN,EmpAge,EmpZone)
+    -> Values ('jack','sparrow',26,'south');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into employee(FN,LN,EmpAge,EmpZone)
+    -> Values ('Jaya','sree',29,'north');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from employee;
++-------+------+---------+--------+---------+
+| EmpID | FN   | LN      | EmpAge | EmpZone |
++-------+------+---------+--------+---------+
+|     1 | jack | sparrow |     26 | south   |
+|     2 | Jaya | sree    |     29 | north   |
++-------+------+---------+--------+---------+
+2 rows in set (0.00 sec)
