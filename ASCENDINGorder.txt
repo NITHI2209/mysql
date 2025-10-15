@@ -1,0 +1,22 @@
+mysql> select * from employee;
++-------+----------+---------+--------+---------+
+| EmpID | FN       | LN      | EmpAge | EmpZone |
++-------+----------+---------+--------+---------+
+|     1 | jack     | sparrow |     23 | south   |
+|     2 | jaya     | sree    |     24 | north   |
+|     3 | nithya   | sree    |     21 | east    |
+|     4 | jayanthi | sriram  |     29 | west    |
++-------+----------+---------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee
+    -> ORDER BY EmpAge;
++-------+----------+---------+--------+---------+
+| EmpID | FN       | LN      | EmpAge | EmpZone |
++-------+----------+---------+--------+---------+
+|     3 | nithya   | sree    |     21 | east    |
+|     1 | jack     | sparrow |     23 | south   |
+|     2 | jaya     | sree    |     24 | north   |
+|     4 | jayanthi | sriram  |     29 | west    |
++-------+----------+---------+--------+---------+
+4 rows in set (0.00 sec)
