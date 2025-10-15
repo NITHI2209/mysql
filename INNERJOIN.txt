@@ -1,0 +1,48 @@
+mysql> create table employee(
+    -> EmpID int not null,
+    -> DeptID int,
+    -> EmpName varchar(255)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> insert into employee(EmpID,DeptID,EmpName)
+    -> value(100 , 2 ,'Tom Hanks');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into employee(EmpID,DeptID,EmpName)
+    -> value(101 , 4 ,'Bradley cooper');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into employee(EmpID,DeptID,EmpName)
+    -> value(102 , 3 ,'Jack sparrow');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> create table department(
+    -> DeptID int,
+    -> DepName varchar(255),
+    -> DeptZone varchar(255)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into department(DeptID,DepName,DeptZone)
+    -> values(1,'operations','North');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into department(DeptID,DepName,DeptZone)
+    -> values(2,'finance','south');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into department(DeptID,DepName,DeptZone)
+    -> values(3,'marketing','east');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT employee.EmpID,department.DepName
+    -> from employee
+    -> INNER JOIN department on employee.DeptID = department.DeptID;
++-------+-----------+
+| EmpID | DepName   |
++-------+-----------+
+|   100 | finance   |
+|   102 | marketing |
++-------+-----------+
+2 rows in set (0.00 sec)
