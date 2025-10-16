@@ -6,9 +6,9 @@
 5)Show employees whose salary is between 40000 and 70000.
 6)Show employees whose names start with ‘A’.
 7)Show employees who are not from the HR department.
-8)Display the unique departments in the table.
-9)Display employees in ascending order of salary.
-10)Display the top 3 highest-paid employees.
+8)Display the asecending order of the employee
+9)Display employee with top 3 salary
+10)Display avg salary
 solution:
 mysql> create table employee(
     -> EmpID int,
