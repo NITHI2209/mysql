@@ -1,0 +1,85 @@
+🟡 Medium-Level Practice Questions
+1)Find the highest salary in the employee table.
+2)Find the lowest salary in the employee table.
+3)Find the total salary paid to all employees.
+4)Count the number of employees in each department.
+5)Find the average salary per department.
+6)Find departments having average salary greater than 50000.
+7)Find employees who earn more than the average salary.
+8)Find the second highest salary.
+9)Find the third highest salary using a subquery.
+10)Find employees who work in the same department as 'Emma'.
+11)Show employees with a salary greater than 50000 and age less than 40.
+12)Display employees older than the average age.
+13)Use a CASE statement to categorize employees by age:
+“Junior” → Age < 30
+“Mid-level” → Age 30–40
+“Senior” → Age > 40
+
+1)mysql> select * from employee;
++-------+-------+-------+------+---------+--------+
+| EmpID | FN    | LN    | Age  | Dept    | salary |
++-------+-------+-------+------+---------+--------+
+|     1 | Alice | Rao   |   25 | HR      |  35000 |
+|     2 | Bob   | Kumar |   32 | IT      |  55000 |
+|     3 | Carol | Singh |   29 | Finance |  48000 |
+|     4 | David | Nair  |   45 | IT      |  75000 |
+|     5 | Emma  | Das   |   38 | HR      |  60000 |
++-------+-------+-------+------+---------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select max(salary)
+    -> from employee;
++-------------+
+| max(salary) |
++-------------+
+|       75000 |
++-------------+
+1 row in set (0.02 sec)
+2) mysql> select min(salary) as MIN_SALARY
+    -> from employee;
++------------+
+| MIN_SALARY |
++------------+
+|      35000 |
++------------+
+1 row in set (0.00 sec)
+3) mysql> select sum(salary) as TOTAL
+    -> from employee;
++--------+
+| TOTAL  |
++--------+
+| 273000 |
++--------+
+1 row in set (0.00 sec)
+4) mysql> select Dept,count(*) as Count_per_dept
+    -> from employee
+    -> group by Dept;
++---------+----------------+
+| Dept    | Count_per_dept |
++---------+----------------+
+| HR      |              2 |
+| IT      |              2 |
+| Finance |              1 |
++---------+----------------+
+3 rows in set (0.00 sec)
+5) mysql> select Dept,avg(salary) as AVG_OF_EMPLOYEE
+    -> from employee
+    -> group by dept;
++---------+-----------------+
+| Dept    | AVG_OF_EMPLOYEE |
++---------+-----------------+
+| HR      |      47500.0000 |
+| IT      |      65000.0000 |
+| Finance |      48000.0000 |
++---------+-----------------+
+3 rows in set (0.02 sec)
+6)mysql> select Dept,avg(salary) as AVG_OF_SALARY
+    -> FROM EMPLOYEE
+    -> GROUP BY DEPT
+    -> HAVING AVG(SALARY)>50000;
++------+---------------+
+| Dept | AVG_OF_SALARY |
++------+---------------+
+| IT   |    65000.0000 |
++------+---------------+
