@@ -78,8 +78,48 @@ mysql> select max(salary)
     -> FROM EMPLOYEE
     -> GROUP BY DEPT
     -> HAVING AVG(SALARY)>50000;
+7)mysql> select * from employee
+    -> where salary > (select avg(salary) from employee);
++-------+-------+-------+------+------+--------+
+| EmpID | FN    | LN    | Age  | Dept | salary |
++-------+-------+-------+------+------+--------+
+|     2 | Bob   | Kumar |   32 | IT   |  55000 |
+|     4 | David | Nair  |   45 | IT   |  75000 |
+|     5 | Emma  | Das   |   38 | HR   |  60000 |
++-------+-------+-------+------+------+--------+
+3 rows in set (0.01 sec)
 +------+---------------+
 | Dept | AVG_OF_SALARY |
 +------+---------------+
 | IT   |    65000.0000 |
 +------+---------------+
+
+8)mysql> select max(salary) as second_highest
+    -> from employee
+    -> where salary < (select max(salary) from employee);
++----------------+
+| second_highest |
++----------------+
+|          60000 |
++----------------+
+1 row in set (0.02 sec)
+
+9)SELECT DISTINCT salary
+FROM employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 2;
+ Explanation:
+ORDER BY salary DESC → sorts salaries from highest to lowest.
+OFFSET 2 → skips the top 2 salaries.
+LIMIT 1 → shows the next one → 3rd highest salary.
+
+10)mysql> select * from employee
+    -> where dept = (select dept from employee
+    -> where FN = 'Emma');
++-------+-------+------+------+------+--------+
+| EmpID | FN    | LN   | Age  | Dept | salary |
++-------+-------+------+------+------+--------+
+|     1 | Alice | Rao  |   25 | HR   |  35000 |
+|     5 | Emma  | Das  |   38 | HR   |  60000 |
++-------+-------+------+------+------+--------+
+2 rows in set (0.02 sec)
