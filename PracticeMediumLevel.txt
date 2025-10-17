@@ -123,3 +123,44 @@ LIMIT 1 → shows the next one → 3rd highest salary.
 |     5 | Emma  | Das  |   38 | HR   |  60000 |
 +-------+-------+------+------+------+--------+
 2 rows in set (0.02 sec)
+
+11)mysql> select * from employee
+    -> where salary > 50000 and Age < 40;
++-------+------+-------+------+------+--------+
+| EmpID | FN   | LN    | Age  | Dept | salary |
++-------+------+-------+------+------+--------+
+|     2 | Bob  | Kumar |   32 | IT   |  55000 |
+|     5 | Emma | Das   |   38 | HR   |  60000 |
++-------+------+-------+------+------+--------+
+2 rows in set (0.00 sec)
+
+12)mysql> select * from employee
+    -> where age > (Select avg(age) from employee);
++-------+-------+------+------+------+--------+
+| EmpID | FN    | LN   | Age  | Dept | salary |
++-------+-------+------+------+------+--------+
+|     4 | David | Nair |   45 | IT   |  75000 |
+|     5 | Emma  | Das  |   38 | HR   |  60000 |
++-------+-------+------+------+------+--------+
+2 rows in set (0.00 sec)
+
+13)mysql> select
+    -> FN,
+    -> LN,
+    -> Age,
+    -> CASE
+    -> when age < 30 then 'junior'
+    -> when age between 30 and 40 then 'MID-level'
+    -> else 'senior'
+    -> end as age_cat
+    -> from employee;
++-------+-------+------+-----------+
+| FN    | LN    | Age  | age_cat   |
++-------+-------+------+-----------+
+| Alice | Rao   |   25 | junior    |
+| Bob   | Kumar |   32 | MID-level |
+| Carol | Singh |   29 | junior    |
+| David | Nair  |   45 | senior    |
+| Emma  | Das   |   38 | MID-level |
++-------+-------+------+-----------+
+5 rows in set (0.01 sec)
