@@ -1,0 +1,252 @@
+mysql> INSERT INTO movie (Id, Title, Director, Year, Length_mintues)
+    -> VALUES
+    -> (1, "Toy Story", "John Lasseter", 1995, 81),
+    -> (2, "A Bug's Life", "John Lasseter", 1998, 95),
+    -> (3, "Toy Story 2", "John Lasseter", 1999, 93),
+    -> (4, "Monsters Inc", "Pete Docter", 2001, 92),
+    -> (5, "Finding Nemo", "Andrew Stanton", 2003, 107),
+    -> (6, "The Incredibles", "Brad Bird", 2004, 116),
+    -> (7, "Cars", "John Lasseter", 2006, 117),
+    -> (8, "Ratatouille", "Brad Bird", 2007, 118),
+    -> (9, "WALL-E", "Andrew Stanton", 2008, 104),
+    -> (10, "Up", "Pete Docter", 2009, 101),
+    -> (11, "Toy Story 3", "Lee Unkrich", 2010, 103),
+    -> (12, "Cars 2", "John Lasseter", 2011, 120),
+    -> (13, "Brave", "Brenda Chapman", 2012, 102),
+    -> (14, "Monsters University", "Dan Scanlon", 2013, 110);
+Query OK, 14 rows affected (0.01 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+
+1)mysql> select Title from movie;
++---------------------+
+| Title               |
++---------------------+
+| Toy Story           |
+| A Bug's Life        |
+| Toy Story 2         |
+| Monsters Inc        |
+| Finding Nemo        |
+| The Incredibles     |
+| Cars                |
+| Ratatouille         |
+| WALL-E              |
+| Up                  |
+| Toy Story 3         |
+| Cars 2              |
+| Brave               |
+| Monsters University |
++---------------------+
+14 rows in set (0.00 sec)
+
+2)mysql> select Title,Director from movie;
++---------------------+----------------+
+| Title               | Director       |
++---------------------+----------------+
+| Toy Story           | John Lasseter  |
+| A Bug's Life        | John Lasseter  |
+| Toy Story 2         | John Lasseter  |
+| Monsters Inc        | Pete Docter    |
+| Finding Nemo        | Andrew Stanton |
+| The Incredibles     | Brad Bird      |
+| Cars                | John Lasseter  |
+| Ratatouille         | Brad Bird      |
+| WALL-E              | Andrew Stanton |
+| Up                  | Pete Docter    |
+| Toy Story 3         | Lee Unkrich    |
+| Cars 2              | John Lasseter  |
+| Brave               | Brenda Chapman |
+| Monsters University | Dan Scanlon    |
++---------------------+----------------+
+14 rows in set (0.00 sec)
+
+3)mysql> SELECT * FROM movie
+    -> where ID = 6;
++------+-----------------+-----------+------+----------------+
+| Id   | Title           | Director  | Year | Length_mintues |
++------+-----------------+-----------+------+----------------+
+|    6 | The Incredibles | Brad Bird | 2004 |            116 |
++------+-----------------+-----------+------+----------------+
+1 row in set (0.00 sec)
+
+4)mysql> SELECT * FROM movie
+    -> where Year BETWEEN 2000 and 2010;
++------+-----------------+----------------+------+----------------+
+| Id   | Title           | Director       | Year | Length_mintues |
++------+-----------------+----------------+------+----------------+
+|    4 | Monsters Inc    | Pete Docter    | 2001 |             92 |
+|    5 | Finding Nemo    | Andrew Stanton | 2003 |            107 |
+|    6 | The Incredibles | Brad Bird      | 2004 |            116 |
+|    7 | Cars            | John Lasseter  | 2006 |            117 |
+|    8 | Ratatouille     | Brad Bird      | 2007 |            118 |
+|    9 | WALL-E          | Andrew Stanton | 2008 |            104 |
+|   10 | Up              | Pete Docter    | 2009 |            101 |
+|   11 | Toy Story 3     | Lee Unkrich    | 2010 |            103 |
++------+-----------------+----------------+------+----------------+
+8 rows in set (0.00 sec)
+
+5)mysql> SELECT * FROM movie
+    -> where Year NOT BETWEEN 2000 and 2010;
++------+---------------------+----------------+------+----------------+
+| Id   | Title               | Director       | Year | Length_mintues |
++------+---------------------+----------------+------+----------------+
+|    1 | Toy Story           | John Lasseter  | 1995 |             81 |
+|    2 | A Bug's Life        | John Lasseter  | 1998 |             95 |
+|    3 | Toy Story 2         | John Lasseter  | 1999 |             93 |
+|   12 | Cars 2              | John Lasseter  | 2011 |            120 |
+|   13 | Brave               | Brenda Chapman | 2012 |            102 |
+|   14 | Monsters University | Dan Scanlon    | 2013 |            110 |
++------+---------------------+----------------+------+----------------+
+6 rows in set (0.00 sec)
+
+6)mysql> SELECT * FROM movie
+    -> where Title LIKE "Toy%";
++------+-------------+---------------+------+----------------+
+| Id   | Title       | Director      | Year | Length_mintues |
++------+-------------+---------------+------+----------------+
+|    1 | Toy Story   | John Lasseter | 1995 |             81 |
+|    3 | Toy Story 2 | John Lasseter | 1999 |             93 |
+|   11 | Toy Story 3 | Lee Unkrich   | 2010 |            103 |
++------+-------------+---------------+------+----------------+
+3 rows in set (0.00 sec)
+
+7)mysql> SELECT * FROM movie
+    -> where Director = "John Lasseter";
++------+--------------+---------------+------+----------------+
+| Id   | Title        | Director      | Year | Length_mintues |
++------+--------------+---------------+------+----------------+
+|    1 | Toy Story    | John Lasseter | 1995 |             81 |
+|    2 | A Bug's Life | John Lasseter | 1998 |             95 |
+|    3 | Toy Story 2  | John Lasseter | 1999 |             93 |
+|    7 | Cars         | John Lasseter | 2006 |            117 |
+|   12 | Cars 2       | John Lasseter | 2011 |            120 |
++------+--------------+---------------+------+----------------+
+5 rows in set (0.03 sec)
+
+8)mysql> SELECT * FROM movie
+    -> where Title LIKE "WALL%";
++------+--------+----------------+------+----------------+
+| Id   | Title  | Director       | Year | Length_mintues |
++------+--------+----------------+------+----------------+
+|    9 | WALL-E | Andrew Stanton | 2008 |            104 |
++------+--------+----------------+------+----------------+
+1 row in set (0.00 sec)
+
+9)mysql> SELECT * FROM movie
+    -> ORDER BY Title
+    -> LIMIT 5;
++------+--------------+----------------+------+----------------+
+| Id   | Title        | Director       | Year | Length_mintues |
++------+--------------+----------------+------+----------------+
+|    2 | A Bug's Life | John Lasseter  | 1998 |             95 |
+|   13 | Brave        | Brenda Chapman | 2012 |            102 |
+|    7 | Cars         | John Lasseter  | 2006 |            117 |
+|   12 | Cars 2       | John Lasseter  | 2011 |            120 |
+|    5 | Finding Nemo | Andrew Stanton | 2003 |            107 |
++------+--------------+----------------+------+----------------+
+5 rows in set (0.00 sec)
+
+10)mysql> SELECT * FROM movie
+    -> ORDER BY Title
+    -> LIMIT 5 OFFSET 5;
++------+---------------------+---------------+------+----------------+
+| Id   | Title               | Director      | Year | Length_mintues |
++------+---------------------+---------------+------+----------------+
+|    4 | Monsters Inc        | Pete Docter   | 2001 |             92 |
+|   14 | Monsters University | Dan Scanlon   | 2013 |            110 |
+|    8 | Ratatouille         | Brad Bird     | 2007 |            118 |
+|    6 | The Incredibles     | Brad Bird     | 2004 |            116 |
+|    1 | Toy Story           | John Lasseter | 1995 |             81 |
++------+---------------------+---------------+------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> CREATE TABLE movie_revenue (
+    ->     movie_id INT PRIMARY KEY,
+    ->     rating DECIMAL(2,1),
+    ->     domestic_sales BIGINT,
+    ->     international_sales BIGINT
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO movie_revenue (movie_id, rating, domestic_sales, international_sales)
+    -> VALUES
+    -> (5, 8.2, 380843261, 555900000),
+    -> (14, 7.4, 268492764, 475066843),
+    -> (8, 8.0, 206445654, 417277164),
+    -> (12, 6.4, 191452396, 368400000),
+    -> (3, 7.9, 245852179, 239163000),
+    -> (6, 8.0, 261441092, 370001000),
+    -> (9, 8.5, 223808164, 297503696),
+    -> (11, 8.4, 415004880, 648167031),
+    -> (1, 8.3, 191796233, 170162503),
+    -> (7, 7.2, 244082982, 217900167),
+    -> (10, 8.3, 293004164, 438338580),
+    -> (4, 8.1, 289916256, 272900000);
+Query OK, 12 rows affected (0.01 sec)
+Records: 12  Duplicates: 0  Warnings: 0
+
+11)mysql> SELECT movie.Title, movie_revenue.rating
+    -> FROM movie
+    -> INNER JOIN movie_revenue on movie.ID = movie_revenue.movie_id;
++---------------------+--------+
+| Title               | rating |
++---------------------+--------+
+| Toy Story           |    8.3 |
+| Toy Story 2         |    7.9 |
+| Monsters Inc        |    8.1 |
+| Finding Nemo        |    8.2 |
+| The Incredibles     |    8.0 |
+| Cars                |    7.2 |
+| Ratatouille         |    8.0 |
+| WALL-E              |    8.5 |
+| Up                  |    8.3 |
+| Toy Story 3         |    8.4 |
+| Cars 2              |    6.4 |
+| Monsters University |    7.4 |
++---------------------+--------+
+12 rows in set (0.00 sec)
+
+12)mysql> SELECT movie.Title, movie_revenue.domestic_sales ,movie_revenue.international_sales
+    -> FROM movie
+    -> LEFT JOIN movie_revenue
+    -> ON movie.id = movie_revenue.movie_id;
++---------------------+----------------+---------------------+
+| Title               | domestic_sales | international_sales |
++---------------------+----------------+---------------------+
+| Toy Story           |      191796233 |           170162503 |
+| A Bug's Life        |           NULL |                NULL |
+| Toy Story 2         |      245852179 |           239163000 |
+| Monsters Inc        |      289916256 |           272900000 |
+| Finding Nemo        |      380843261 |           555900000 |
+| The Incredibles     |      261441092 |           370001000 |
+| Cars                |      244082982 |           217900167 |
+| Ratatouille         |      206445654 |           417277164 |
+| WALL-E              |      223808164 |           297503696 |
+| Up                  |      293004164 |           438338580 |
+| Toy Story 3         |      415004880 |           648167031 |
+| Cars 2              |      191452396 |           368400000 |
+| Brave               |           NULL |                NULL |
+| Monsters University |      268492764 |           475066843 |
++---------------------+----------------+---------------------+
+14 rows in set (0.00 sec)
+
+13)mysql> SELECT movie.Title, movie.Director ,movie_revenue.rating
+    -> FROM movie
+    -> RIGHT JOIN movie_revenue
+    -> ON movie.id = movie_revenue.movie_id;
++---------------------+----------------+--------+
+| Title               | Director       | rating |
++---------------------+----------------+--------+
+| Toy Story           | John Lasseter  |    8.3 |
+| Toy Story 2         | John Lasseter  |    7.9 |
+| Monsters Inc        | Pete Docter    |    8.1 |
+| Finding Nemo        | Andrew Stanton |    8.2 |
+| The Incredibles     | Brad Bird      |    8.0 |
+| Cars                | John Lasseter  |    7.2 |
+| Ratatouille         | Brad Bird      |    8.0 |
+| WALL-E              | Andrew Stanton |    8.5 |
+| Up                  | Pete Docter    |    8.3 |
+| Toy Story 3         | Lee Unkrich    |    8.4 |
+| Cars 2              | John Lasseter  |    6.4 |
+| Monsters University | Dan Scanlon    |    7.4 |
++---------------------+----------------+--------+
+12 rows in set (0.00 sec)
