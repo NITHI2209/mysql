@@ -375,3 +375,37 @@ mysql> select * from employees;
 +---------------------+----------------+----------------+
 14 rows in set (0.00 sec)
 
+17)EVEN year movie released
+mysql> SELECT Title,Director,Year
+    -> FROM movie
+    -> WHERE MOD(Year,2) = 0;
++-----------------+----------------+------+
+| Title           | Director       | Year |
++-----------------+----------------+------+
+| A Bug's Life    | John Lasseter  | 1998 |
+| The Incredibles | Brad Bird      | 2004 |
+| Cars            | John Lasseter  | 2006 |
+| WALL-E          | Andrew Stanton | 2008 |
+| Toy Story 3     | Lee Unkrich    | 2010 |
+| Brave           | Brenda Chapman | 2012 |
++-----------------+----------------+------+
+6 rows in set (0.00 sec)
+
+18)Odd year movie released
+mysql> SELECT Title,Director,Year
+    -> FROM movie
+    -> WHERE MOD(Year,2) <> 0;
++---------------------+----------------+------+
+| Title               | Director       | Year |
++---------------------+----------------+------+
+| Toy Story           | John Lasseter  | 1995 |
+| Toy Story 2         | John Lasseter  | 1999 |
+| Monsters Inc        | Pete Docter    | 2001 |
+| Finding Nemo        | Andrew Stanton | 2003 |
+| Ratatouille         | Brad Bird      | 2007 |
+| Up                  | Pete Docter    | 2009 |
+| Cars 2              | John Lasseter  | 2011 |
+| Monsters University | Dan Scanlon    | 2013 |
++---------------------+----------------+------+
+8 rows in set (0.00 sec)
+
